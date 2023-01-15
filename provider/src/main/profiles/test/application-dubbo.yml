@@ -1,8 +1,8 @@
 dubbo:
   application:
     # 应用名称
-    name: rical-backend-provider
-    id: rical-backend-provider
+    name: rical-gateway
+    id: rical-gateway
   registry:
     # 注册中心地址
     address: nacos://82.156.216.48:8848/

@@ -3,13 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>rical.backend</artifactId>
+        <artifactId>rical.gateway</artifactId>
         <groupId>com.wtrue</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <packaging>jar</packaging>
-    <artifactId>rical.backend.provider</artifactId>
+    <artifactId>rical.gateway.provider</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -47,11 +47,11 @@
         <!--rical-->
         <dependency>
             <groupId>com.wtrue</groupId>
-            <artifactId>rical.backend.api</artifactId>
+            <artifactId>rical.gateway.api</artifactId>
         </dependency>
         <dependency>
             <groupId>com.wtrue</groupId>
-            <artifactId>rical.backend.task</artifactId>
+            <artifactId>rical.gateway.task</artifactId>
         </dependency>
     </dependencies>
 
@@ -63,7 +63,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>2.3.0.RELEASE</version>
                 <configuration>
-                    <mainClass>com.wtrue.rical.backend.BackendApp</mainClass>
+                    <mainClass>com.wtrue.rical.gateway.Application</mainClass>
                 </configuration>
                 <executions>
                     <execution>

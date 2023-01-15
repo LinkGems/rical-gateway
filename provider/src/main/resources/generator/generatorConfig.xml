@@ -22,7 +22,7 @@
         </jdbcConnection>
 
         <!--实体-->
-        <javaModelGenerator targetPackage="com.wtrue.rical.backend.domain.po${moduleName}"
+        <javaModelGenerator targetPackage="com.wtrue.rical.gateway.domain.po${moduleName}"
                             targetProject="../domain/src/main/java"/>
         <!--targetProject="../dao/src/main/java"/>-->
 
@@ -31,7 +31,7 @@
                          targetProject="../dao/src/main/resources"/>
 
         <!--mapper接口-->
-        <javaClientGenerator targetPackage="com.wtrue.rical.backend.dao.mapper${moduleName}"
+        <javaClientGenerator targetPackage="com.wtrue.rical.gateway.dao.mapper${moduleName}"
                              targetProject="../dao/src/main/java"
                              type="XMLMAPPER"/>
 

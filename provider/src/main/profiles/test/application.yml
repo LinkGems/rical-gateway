@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: rical-backend-provider
+    name: rical-gateway
   cloud:
     nacos:
       discovery:

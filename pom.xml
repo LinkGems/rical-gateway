@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.wtrue</groupId>
-    <artifactId>rical.backend</artifactId>
+    <artifactId>rical.gateway</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <modules>
         <module>provider</module>
@@ -30,7 +30,7 @@
         <spring-boot.version>2.1.13.RELEASE</spring-boot.version>
         <!--服务依赖-->
         <rical-common.version>1.0.4-SNAPSHOT</rical-common.version>
-        <rical.backend.export.version>1.0.0-SNAPSHOT</rical.backend.export.version>
+        <rical.gateway.export.version>1.0.0-SNAPSHOT</rical.gateway.export.version>
         <!--mysql-->
         <mysql.version>8.0.16</mysql.version>
         <tk-mybatis.version>2.1.5</tk-mybatis.version>
@@ -86,44 +86,44 @@
             <!--backend-export-->
             <dependency>
                 <groupId>com.wtrue</groupId>
-                <artifactId>rical.backend.export</artifactId>
-                <version>${rical.backend.export.version}</version>
+                <artifactId>rical.gateway.export</artifactId>
+                <version>${rical.gateway.export.version}</version>
             </dependency>
 
             <!--backend-->
             <dependency>
                 <groupId>com.wtrue</groupId>
-                <artifactId>rical.backend.api</artifactId>
+                <artifactId>rical.gateway.api</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.wtrue</groupId>
-                <artifactId>rical.backend.biz</artifactId>
+                <artifactId>rical.gateway.biz</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.wtrue</groupId>
-                <artifactId>rical.backend.service</artifactId>
+                <artifactId>rical.gateway.service</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.wtrue</groupId>
-                <artifactId>rical.backend.domain</artifactId>
+                <artifactId>rical.gateway.domain</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.wtrue</groupId>
-                <artifactId>rical.backend.dao</artifactId>
+                <artifactId>rical.gateway.dao</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.wtrue</groupId>
-                <artifactId>rical.backend.common</artifactId>
+                <artifactId>rical.gateway.common</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.wtrue</groupId>
-                <artifactId>rical.backend.task</artifactId>
+                <artifactId>rical.gateway.task</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
