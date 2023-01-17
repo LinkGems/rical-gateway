@@ -5,6 +5,12 @@ spring:
   application:
     name: rical-gateway
   cloud:
+    gateway:
+      routes:
+        - id: backend
+        - uri: http://localhost:10000
+        - predicates:
+          - Host=backend.rical.wtrue.cn**
     nacos:
       discovery:
         server-addr: 82.156.216.48:8848
