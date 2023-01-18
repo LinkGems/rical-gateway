@@ -1,5 +1,5 @@
 server:
-  port: 10000
+  port: 10001
 
 spring:
   application:
@@ -8,9 +8,9 @@ spring:
     gateway:
       routes:
         - id: backend
-        - uri: http://localhost:10000
-        - predicates:
-          - Host=backend.rical.wtrue.cn**
+          uri: http://localhost:10000
+          predicates:
+              - Host=backend.rical.wtrue.cn**
     nacos:
       discovery:
         server-addr: 82.156.216.48:8848

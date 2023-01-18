@@ -14,9 +14,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  *                  http://{ip}:{port}/doc.html
  * @author: meidanlong
  * @date: 2021/3/25 7:43 PM
+ * @Deprecated springcloud gateway 与 swagger2 冲突
  */
-@Configuration
-@EnableSwagger2
+//@Configuration
+//@EnableSwagger2
 public class SwaggerConfig {
 
     @Value("${swagger.title}")
@@ -34,7 +35,7 @@ public class SwaggerConfig {
     @Value("${swagger.self-url}")
     private String selfUrl;
 
-    @Bean
+//    @Bean
     public Docket swaggerDocket(){
         Contact contact = new Contact(author, selfUrl, email);
         Swagger swagger = Swagger.builder()
@@ -45,7 +46,6 @@ public class SwaggerConfig {
                 .url(web)
                 .build();
         Docket docket = swagger.createRestApiOfAnyPackage();
-        System.out.println(docket.toString());
         return swagger.createRestApiOfAnyPackage();
     }
 

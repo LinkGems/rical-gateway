@@ -5,4 +5,4 @@ xxl:
     accessToken: wtjc
     executor:
       appname: rical-gateway
-      port: 9900
+      port: 9901

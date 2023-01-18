@@ -1,15 +1,15 @@
 dubbo:
   application:
     # 应用名称
-    name: rical-backend-provider
-    id: rical-backend-provider
+    name: rical-gateway
+    id: rical-gateway
   registry:
     # 注册中心地址
-    address: nacos://82.156.216.48:8848/
+    address: nacos://localhost:8848/
   protocol:
     # 传输协议
     name: dubbo
     # ip不可为127.0.0.1 -> 本机ip
     host: 172.19.160.212
     # 随机端口
-    port: -1
+    port: 20881

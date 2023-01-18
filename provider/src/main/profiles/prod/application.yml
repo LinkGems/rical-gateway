@@ -1,9 +1,9 @@
 server:
-  port: 10000
+  port: 10001
 
 spring:
   application:
-    name: rical-backend-provider
+    name: rical-gateway
   cloud:
     nacos:
       discovery:
@@ -20,4 +20,5 @@ spring:
       - dversion
       - swagger
       - job
-
+  main:
+    web-application-type: reactive

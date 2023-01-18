@@ -15,7 +15,7 @@ import javax.annotation.Resource;
  * @author: meidanlong
  * @date: 2021/7/18 4:51 PM
  */
-@Service(version = "${provider.wtrue.rical.backend.ITestProvider}")
+//@Service(version = "${provider.wtrue.rical.backend.ITestProvider}")
 public class UserProvider implements IUserProvider {
 
     @Resource

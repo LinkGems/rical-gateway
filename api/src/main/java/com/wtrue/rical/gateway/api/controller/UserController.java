@@ -18,11 +18,12 @@ import javax.annotation.Resource;
 @RequestMapping("user")
 public class UserController {
 
-    @Resource
-    private IUserProvider userProvider;
+//    @Resource
+//    private IUserProvider userProvider;
 
     @GetMapping("query")
     public BaseResponse<UserBaseModel> queryUser(Long userId){
-        return userProvider.queryUser(userId);
+//        return userProvider.queryUser(userId);
+        return new BaseResponse<>();
     }
 }
