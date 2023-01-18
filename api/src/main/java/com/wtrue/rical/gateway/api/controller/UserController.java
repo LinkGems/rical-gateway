@@ -21,7 +21,7 @@ public class UserController {
 //    @Resource
 //    private IUserProvider userProvider;
 
-    @GetMapping("query")
+//    @GetMapping("query")
     public BaseResponse<UserBaseModel> queryUser(Long userId){
 //        return userProvider.queryUser(userId);
         return new BaseResponse<>();

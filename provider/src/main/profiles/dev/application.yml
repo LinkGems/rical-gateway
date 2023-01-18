@@ -7,28 +7,14 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: rical
-          uri: http://localhost:10000
-          predicates:
-            - Host=backend.rical.wtrue.cn**
-        - id: user
-          uri: http://127.0.0.1:10000
-          predicates:
-            - Path=/user/**
+#        - id: user
+#          uri: http://127.0.0.1:10000
+#          predicates:
+#            - Path=/user/**
         - id: backend
           uri: lb://rical-backend-provider
           predicates:
             - Path=/user/**
-#    gateway:
-#      routes:
-#        - id: backend
-#          uri: http://localhost:10000
-#          predicates:
-#            - Host=backend.rical.wtrue.cn**
-#        - id: auth
-#          uri: http://localhost:10000
-#          predicates:
-#            - Path=/user
     nacos:
       discovery:
         server-addr: localhost:8848
