@@ -1,0 +1,13 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: wtrue-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 82.156.216.48:8848
+      config:
+        server-addr: 82.156.216.48:8848 #Nacos作为配置中心地址
+        file-extension: yaml #指定yaml格式的配置
