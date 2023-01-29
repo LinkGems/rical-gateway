@@ -2,18 +2,6 @@ server:
   port: 10001
 
 spring:
-  application:
-    name: rical-gateway
-  cloud:
-    gateway:
-      routes:
-        - id: backend
-          uri: http://localhost:10000
-          predicates:
-              - Host=backend.rical.wtrue.cn**
-    nacos:
-      discovery:
-        server-addr: 82.156.216.48:8848
   datasource:
     url: jdbc:mysql://82.156.216.48:3306/user_center
     hikari:
