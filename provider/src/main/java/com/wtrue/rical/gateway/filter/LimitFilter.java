@@ -29,20 +29,17 @@ import java.util.concurrent.TimeUnit;
 public class LimitFilter implements GlobalFilter, Ordered
 {
 
-    @Value("rical.gateway.request.qpslimit")
+    @Value("${rical.gateway.request.qpslimit}")
     private Integer qpslimit;
 
-    @Value("rical.gateway.request.timeout")
+    @Value("${rical.gateway.request.timeout}")
     private Integer timeout;
-
-    //创建一个限流器，参数代表每秒生成的令牌数(用户限流频率设置 每秒中限制qpslimit个请求)
-    private RateLimiter rateLimiter = RateLimiter.create(qpslimit);
-    @Value("${seckill.intercept.url}")
-    private List<String> gatewaySeckillInterceptUrl;
 
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+        //创建一个限流器，参数代表每秒生成的令牌数(用户限流频率设置 每秒中限制qpslimit个请求)
+        RateLimiter rateLimiter = RateLimiter.create(qpslimit);
         ServerHttpResponse response = exchange.getResponse();
         ServerHttpRequest request = exchange.getRequest();
         HttpHeaders header = response.getHeaders();
