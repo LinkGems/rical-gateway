@@ -22,7 +22,6 @@ import java.net.URI;
 public class LoggerFilter implements GlobalFilter, Ordered {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-        log.info("LoggerFilter.filter , come in~");
         // 获取请求信息
         ServerHttpRequest request = exchange.getRequest();
         InetSocketAddress address = request.getRemoteAddress();
@@ -32,7 +31,7 @@ public class LoggerFilter implements GlobalFilter, Ordered {
         // 获取请求query
         MultiValueMap<String, String> map = request.getQueryParams();
 
-        log.info("request = {} , address = {}, method = {}, uri = {},\nheaders = {}, map = {}",request,address,method,uri,headers,map);
+        log.info("LoggerFilter.filter , come in! 具体请求细节请往下看： \n request = {} \n address = {} \n method = {} \n uri = {} \n headers = {} \n map = {}",request,address,method,uri,headers,map);
 
         return chain.filter(exchange);
     }
