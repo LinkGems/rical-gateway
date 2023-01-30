@@ -15,6 +15,8 @@ import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
+
+import javax.annotation.PostConstruct;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -27,16 +29,21 @@ public class LimitFilter implements GlobalFilter, Ordered
 {
 
     @Value("${rical.gateway.request.qpslimit}")
-    private Integer qpslimit;
+    private Double qpslimit;
 
     @Value("${rical.gateway.request.timeout}")
     private Integer timeout;
 
+    //创建一个限流器，参数代表每秒生成的令牌数(用户限流频率设置 每秒中限制qpslimit个请求)
+    RateLimiter rateLimiter;
+
+    @PostConstruct
+    public void init(){
+        rateLimiter = RateLimiter.create(qpslimit);
+    }
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-        //创建一个限流器，参数代表每秒生成的令牌数(用户限流频率设置 每秒中限制qpslimit个请求)
-        RateLimiter rateLimiter = RateLimiter.create(qpslimit);
         ServerHttpResponse response = exchange.getResponse();
         ServerHttpRequest request = exchange.getRequest();
         HttpHeaders header = response.getHeaders();
@@ -45,6 +52,7 @@ public class LimitFilter implements GlobalFilter, Ordered
 
         //设置等待超时时间的方式获取令牌，如果超timeout为0，则代表非阻塞，获取不到立即返回
         boolean tryAcquire = rateLimiter.tryAcquire(timeout, TimeUnit.SECONDS);
+        log.info("com.wtrue.rical.gateway.filter.LimitFilter.filter , tryAcquire = {}",tryAcquire);
         if (!tryAcquire) {
             JSONObject jsonObject = setResultErrorMsg("当前访问用户过多，请稍后重试");
             DataBuffer buffer = response.bufferFactory().wrap(jsonObject.toJSONString().getBytes());
