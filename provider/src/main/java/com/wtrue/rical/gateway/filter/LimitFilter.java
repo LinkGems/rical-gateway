@@ -40,10 +40,8 @@ public class LimitFilter implements GlobalFilter, Ordered
 
     /**
      * 为什么要在bean的初始化方法赋值？
-     * 1.因为@value注解是在spring的 populateBean 方法中 通过 AutowiredAnnotationBeanPostProcessor后置处理器中赋值
-     *        * 关键代码 PropertyValues pvsToUse = ibp.postProcessProperties(pvs, bw.getWrappedInstance(), beanName);
+     * 因为@value注解是在spring的 populateBean 方法中 通过 AutowiredAnnotationBeanPostProcessor后置处理器中赋值
      *        * 而如果直接在上面赋值他的执行时机是jvm启动时赋值，该步骤会在spring之前就会产生npe异常
-     * 2.使用@PostConstruct等其他初始化方法的执行时机是 initializeBean ，该方法的调用刚好在populatebean的下一行，所以此时对象中有@value注入的值
      */
     @PostConstruct
     public void init(){
