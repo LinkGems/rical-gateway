@@ -3,11 +3,13 @@ package com.wtrue.rical.gateway.export.controller;
 import com.alibaba.fastjson.JSON;
 import com.wtrue.rical.gateway.export.pojo.SelfCheckRequest;
 import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,14 +21,27 @@ import java.lang.reflect.Method;
  * 本类是用作bean方法自检
  * @Author： Luzelong
  * @Created： 2023/2/1 10:44
+ *
+ * 请求案例：
+ * {
+ *     "appName": "rical-gateway",
+ *     "beanClazzName": "com.wtrue.rical.gateway.service.ITestService",
+ *     "methodName": "getTestMap",
+ *     "parameterTypes": [
+ *         "java.lang.String",
+ *         "java.lang.Integer"
+ *     ],
+ *     "parameters": ["luzelong",999]
+ * }
  */
 @RestController
+@Slf4j
 public class SelfCheckController implements BeanFactoryAware {
 
     /**
      * 业务方引入该export包，就会把业务方自己的appname放进去
      */
-    @Value("spring.application.name")
+    @Value("${spring.application.name}")
     private String appName;
 
     private BeanFactory beanFactory;
@@ -39,8 +54,8 @@ public class SelfCheckController implements BeanFactoryAware {
 
 
 
-    @RequestMapping("selfCheck.json")
-    public String testInvoke(@RequestBody @Valid SelfCheckRequest request) {
+    @PostMapping("selfCheck.json")
+    public String testInvoke(@RequestBody SelfCheckRequest request) {
         try {
             //1.安全检测
             invokeSafeCheck(request);
@@ -59,6 +74,7 @@ public class SelfCheckController implements BeanFactoryAware {
             return JSON.toJSONString(returnValue);
 
         }catch (Exception e){
+            log.error("errMsg : {}",e.getMessage(),e);
             return "自检异常：" + e.getMessage();
         }
     }
