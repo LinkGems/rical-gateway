@@ -23,14 +23,14 @@
     </distributionManagement>
 
     <properties>
-        <rical-common.version>1.0.4-SNAPSHOT</rical-common.version>
+        <rical-common.adam.version>1.0.1-SNAPSHOT</rical-common.adam.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.wtrue</groupId>
-            <artifactId>rical.common</artifactId>
-            <version>${rical-common.version}</version>
+            <artifactId>rical.common.adam</artifactId>
+            <version>${rical-common.adam.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>

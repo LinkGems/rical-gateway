@@ -36,6 +36,12 @@
             <groupId>com.wtrue</groupId>
             <artifactId>rical.gateway.export</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.83_noneautotype</version>
+        </dependency>
     </dependencies>
 
 </project>
