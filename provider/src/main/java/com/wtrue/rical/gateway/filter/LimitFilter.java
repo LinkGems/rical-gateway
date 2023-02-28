@@ -1,7 +1,10 @@
 package com.wtrue.rical.gateway.filter;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.util.concurrent.RateLimiter;
+import com.wtrue.rical.common.adam.domain.BaseError;
+import com.wtrue.rical.common.adam.domain.BaseResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
@@ -60,19 +63,19 @@ public class LimitFilter implements GlobalFilter, Ordered
         boolean tryAcquire = rateLimiter.tryAcquire(timeout, TimeUnit.SECONDS);
         log.info("com.wtrue.rical.gateway.filter.LimitFilter.filter , tryAcquire = {}",tryAcquire);
         if (!tryAcquire) {
-            JSONObject jsonObject = setResultErrorMsg("当前访问用户过多，请稍后重试");
-            DataBuffer buffer = response.bufferFactory().wrap(jsonObject.toJSONString().getBytes());
+            BaseResponse<String> errResponse = setResultErrorMsg("当前访问用户过多，请稍后重试");
+            DataBuffer buffer = response.bufferFactory().wrap(JSON.toJSONString(errResponse).getBytes());
             return response.writeWith(Mono.just(buffer));
         }
         // 放行
         return chain.filter(exchange);
     }
 
-    private JSONObject setResultErrorMsg(String msg) {
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("code", "406");
-        jsonObject.put("message", msg);
-        return jsonObject;
+    private BaseResponse<String> setResultErrorMsg(String msg) {
+        BaseResponse<String> response = new BaseResponse<>();
+        BaseError baseError = new BaseError("406",msg);
+        response.setError(baseError);
+        return response;
     }
 
 
