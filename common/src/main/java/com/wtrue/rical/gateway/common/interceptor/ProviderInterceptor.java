@@ -1,6 +1,6 @@
 package com.wtrue.rical.gateway.common.interceptor;
 
-import com.wtrue.rical.common.utils.ThreadLocalUtil;
+import com.wtrue.rical.common.eve.utils.ThreadLocalUtil;
 import org.apache.dubbo.rpc.RpcContext;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;

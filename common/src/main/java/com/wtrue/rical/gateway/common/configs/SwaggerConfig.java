@@ -1,7 +1,7 @@
 package com.wtrue.rical.gateway.common.configs;
 
 
-import com.wtrue.rical.common.config.Swagger;
+import com.wtrue.rical.common.eve.config.Swagger;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

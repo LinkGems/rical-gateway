@@ -37,11 +37,19 @@
             <artifactId>rical.gateway.export</artifactId>
         </dependency>
 
+
         <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>1.2.83_noneautotype</version>
+            <groupId>com.wtrue</groupId>
+            <artifactId>rical.common.eve</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>spring-boot-starter-web</artifactId>
+                    <groupId>org.springframework.boot</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
+
+
     </dependencies>
 
 </project>
