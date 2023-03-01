@@ -1,11 +1,11 @@
 package com.wtrue.rical.gateway.provider;
 
+import com.wtrue.rical.common.adam.domain.BaseResponse;
 import com.wtrue.rical.gateway.biz.IUserBiz;
 import com.wtrue.rical.gateway.domain.adapter.UserAdapter;
 import com.wtrue.rical.gateway.domain.dto.UserBaseDTO;
 import com.wtrue.rical.gateway.export.pojo.UserBaseModel;
 import com.wtrue.rical.gateway.export.provider.IUserProvider;
-import com.wtrue.rical.common.domain.BaseResponse;
 import org.apache.dubbo.config.annotation.Service;
 
 import javax.annotation.Resource;
