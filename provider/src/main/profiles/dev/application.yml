@@ -11,17 +11,17 @@ spring:
 #          uri: http://127.0.0.1:10000
 #          predicates:
 #            - Path=/user/**
-        - id: backend
-          uri: lb://rical-backend-provider
-          predicates:
-            - Path=/user/**
+#        - id: backend
+#          uri: lb://rical-backend-provider
+#          predicates:
+#            - Path=/user/**
     nacos:
       discovery:
         server-addr: localhost:8848
 #      config:
 #        server-addr: 82.156.216.48:8848
   datasource:
-    url: jdbc:mysql://82.156.216.48:3306/user_center
+    url: jdbc:mysql://localhost:3306/user_center
     hikari:
       username: root
       password: meisql

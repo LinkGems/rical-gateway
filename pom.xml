@@ -155,7 +155,7 @@
     <profiles>
         <profile>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <id>dev</id>
             <properties>
@@ -174,7 +174,7 @@
         </profile>
         <profile>
             <activation>
-                <activeByDefault>false</activeByDefault>
+                <activeByDefault>true</activeByDefault>
             </activation>
             <id>test</id>
             <properties>

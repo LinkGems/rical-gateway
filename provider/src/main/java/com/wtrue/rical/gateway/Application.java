@@ -23,8 +23,8 @@ import java.util.Collection;
 @Slf4j
 public class Application {
 
-    @Resource
-    private ConsumerReference consumerReference;
+//    @Resource
+//    private ConsumerReference consumerReference;
 
     public static void main(String[] args) {
         SpringApplication application = new SpringApplication(Application.class);
