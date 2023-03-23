@@ -5,7 +5,7 @@ dubbo:
     id: rical-gateway
   registry:
     # 注册中心地址
-    address: nacos://82.156.216.48:8848/
+    address: nacos://localhost:8848/
   protocol:
     # 传输协议
     name: dubbo
